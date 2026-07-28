@@ -38,6 +38,12 @@ L'installeur : installe SwiftBar (via Homebrew) si besoin, pose le plugin, puis 
 
 *Prérequis : macOS, [Homebrew](https://brew.sh), un abonnement Claude (Pro / Max).*
 
+## 💻 Windows (bêta)
+
+Une version Windows existe dans le dossier [`windows/`](windows/) : l'icône s'affiche dans la **zone de notification** (près de l'horloge). Installation par double-clic sur `windows/Installer-Claude-Usage-Bar.bat`.
+
+> ⚠️ Version **bêta non encore testée** sur une vraie machine Windows — retours et corrections bienvenus via les issues. Voir [windows/README.md](windows/README.md).
+
 ## 🔧 Comment ça marche / How it works
 
 Le plugin s'authentifie auprès d'Anthropic par le même flux OAuth (PKCE) que Claude Code, avec la portée minimale `user:profile`, et interroge l'endpoint d'utilisation (`/api/oauth/usage`) qui alimente le panneau « Limites d'utilisation » de l'app Claude. Le jeton est stocké dans le trousseau macOS (`ClaudeUsageBar-credentials`) et renouvelé automatiquement avant expiration. L'affichage (titre et panneau) est dessiné en PNG retina par un petit script JXA/AppKit, ce qui permet un rendu multi-couleurs impossible avec du texte SwiftBar seul.
