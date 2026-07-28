@@ -5,6 +5,10 @@
 
 ![Claude Usage Bar](docs/promo.png)
 
+<p align="center">
+  <a href="https://buymeacoffee.com/adrien976"><img src="https://img.shields.io/badge/Buy%20me%20a%20coffee-%E2%98%95-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" alt="Buy me a coffee"></a>
+</p>
+
 ## ✨ Fonctionnalités / Features
 
 - **Barre de menu** : `S 5% · Fable 86% · Sem 84%` — une couleur par limite, sur pastille anthracite. Passe au rouge au-delà de 90 %.
@@ -40,6 +44,10 @@ This project is not affiliated with Anthropic. It relies on **undocumented endpo
 ```bash
 ./uninstall.sh
 ```
+
+## ☕ Soutenir le projet
+
+Claude Usage Bar est gratuit et open source. S'il t'est utile, tu peux m'offrir un café pour soutenir son développement : **[buymeacoffee.com/adrien976](https://buymeacoffee.com/adrien976)** 🙏
 
 ## Licence
 
