@@ -1,7 +1,8 @@
 #!/bin/zsh
 echo "🔑 Reconnexion Claude Usage Bar"
-/usr/bin/python3 <<'PYEOF'
-import base64, hashlib, json, os, secrets, subprocess, time, urllib.request, urllib.parse
+TMP="$(mktemp -t cub_reauth).py"
+cat > "$TMP" <<'PYEOF'
+import base64, hashlib, json, os, secrets, subprocess, time, urllib.request, urllib.parse, sys
 CLIENT_ID = "9d1c250a-e61b-44d9-88ed-5944d1962f5e"
 verifier = base64.urlsafe_b64encode(secrets.token_bytes(32)).rstrip(b"=").decode()
 challenge = base64.urlsafe_b64encode(hashlib.sha256(verifier.encode()).digest()).rstrip(b"=").decode()
@@ -12,9 +13,10 @@ params = {"code": "true", "client_id": CLIENT_ID, "response_type": "code",
           "code_challenge": challenge, "code_challenge_method": "S256", "state": state}
 url = "https://claude.ai/oauth/authorize?" + urllib.parse.urlencode(params)
 subprocess.run(["open", url])
+print("")
 print("Une page d'autorisation s'est ouverte dans ton navigateur.")
-print("Clique sur Autoriser, puis colle ici le code affiché et appuie sur Entrée :")
-raw = input("> ").strip()
+print("Clique sur Autoriser, puis colle ici le code affiche et appuie sur Entree :")
+raw = sys.stdin.readline().strip()
 code = raw.split("#")[0]
 body = {"grant_type": "authorization_code", "code": code,
         "redirect_uri": "https://platform.claude.com/oauth/code/callback",
@@ -31,5 +33,7 @@ creds = {"accessToken": tok["access_token"], "refreshToken": tok.get("refresh_to
 subprocess.run(["security", "add-generic-password", "-U",
                 "-a", os.environ.get("USER", "user"),
                 "-s", "ClaudeUsageBar-credentials", "-w", json.dumps(creds)], check=True)
-print("✅ Reconnecté ! Le plugin se mettra à jour dans les 2 minutes.")
+print("✅ Reconnecte ! Le plugin se mettra a jour dans les 2 minutes.")
 PYEOF
+/usr/bin/python3 "$TMP"
+rm -f "$TMP"
