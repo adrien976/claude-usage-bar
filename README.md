@@ -6,6 +6,7 @@
 ![Claude Usage Bar](docs/promo.png)
 
 <p align="center">
+  <a href="https://github.com/adrien976/claude-usage-bar/releases/latest"><img src="https://img.shields.io/github/downloads/adrien976/claude-usage-bar/total?style=for-the-badge&label=T%C3%A9l%C3%A9chargements&color=30d5c8" alt="Téléchargements"></a>
   <a href="https://buymeacoffee.com/adrien976"><img src="https://img.shields.io/badge/Buy%20me%20a%20coffee-%E2%98%95-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" alt="Buy me a coffee"></a>
 </p>
 
@@ -18,6 +19,14 @@
 - Mise à jour toutes les 2 minutes. Aucune dépendance : Python et AppKit fournis par macOS, affichage via [SwiftBar](https://github.com/swiftbar/SwiftBar).
 
 ## 🚀 Installation
+
+### Le plus simple (sans terminal)
+
+1. **[⬇️ Télécharger l'installeur](https://github.com/adrien976/claude-usage-bar/releases/latest)** (fichier `Installer-Claude-Usage-Bar.command.zip`)
+2. Double-clique sur le fichier téléchargé pour le décompresser, puis **fais un clic droit dessus → Ouvrir** (nécessaire une seule fois car l'app n'est pas signée par Apple).
+3. Laisse-toi guider : clique sur **Autoriser** dans ton navigateur, colle le code, c'est fini. 🎉
+
+### Pour les développeurs (terminal)
 
 ```bash
 git clone https://github.com/adrien976/claude-usage-bar.git
