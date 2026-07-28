@@ -4,7 +4,18 @@ set -e
 APPDIR="$HOME/Library/Application Support/ClaudeUsageBar"
 REPO_DIR="$(cd "$(dirname "$0")" && pwd)"
 
-command -v brew >/dev/null 2>&1 || { echo "❌ Homebrew est requis : https://brew.sh"; exit 1; }
+# Homebrew (installé automatiquement si absent)
+if ! command -v brew >/dev/null 2>&1; then
+  if [ -x /opt/homebrew/bin/brew ]; then eval "$(/opt/homebrew/bin/brew shellenv)"
+  elif [ -x /usr/local/bin/brew ]; then eval "$(/usr/local/bin/brew shellenv)"
+  else
+    echo "➡️  Installation de Homebrew (une seule fois, ~2 min)…"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" </dev/null
+    [ -x /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+    [ -x /usr/local/bin/brew ] && eval "$(/usr/local/bin/brew shellenv)"
+  fi
+fi
+
 [ -d /Applications/SwiftBar.app ] || brew install --cask swiftbar
 
 mkdir -p "$APPDIR/Plugins"
