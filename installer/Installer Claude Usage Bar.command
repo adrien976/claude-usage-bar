@@ -12,7 +12,8 @@ if ! command -v brew >/dev/null 2>&1; then
   elif [ -x /usr/local/bin/brew ]; then eval "$(/usr/local/bin/brew shellenv)";
   else
     echo "➡️  Installation de Homebrew (une seule fois, ~2 min)…"
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" </dev/null
+    echo "🔑  Ton mot de passe Mac va t'être demandé (il ne s'affiche pas quand tu tapes, c'est normal). Il faut être administrateur du Mac."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     [ -x /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
     [ -x /usr/local/bin/brew ] && eval "$(/usr/local/bin/brew shellenv)"
   fi
