@@ -3,9 +3,7 @@
 **FR** — Affiche ta consommation Claude (session 5 h, limites hebdomadaires, par modèle) en direct dans la barre de menu macOS.
 **EN** — Live Claude usage limits (5-hour session, weekly, per-model) in your macOS menu bar.
 
-![Barre de menu](docs/screenshot-menubar.png)
-
-![Menu déroulant](docs/screenshot-panel.png)
+![Claude Usage Bar](docs/promo.png)
 
 ## ✨ Fonctionnalités / Features
 
